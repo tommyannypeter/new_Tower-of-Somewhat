@@ -1,6 +1,8 @@
 #include <iostream>
 #include <time.h>
 #include <cmath>
+#include <thread>
+#include <chrono>
 
 class Timer {
     double m_max_time;
@@ -16,18 +18,18 @@ public:
         clock_t end_time;
         double remain_time;
         start_time = clock();
-        end_time = clock()
         do {
+            end_time = clock();
             remain_time = m_max_time - ((double) (start_time - end_time)) / CLOCKS_PER_SEC;
             show(remain_time);
+            std::this_thread::sleep_for(std::chrono::milliseconds(5));
         } while (remain_time > 0);
     }
 
     void show(double remain_time) {
         int max_print_bar_num = 30;
         int print_bar_num;
-        print_bar_num = (int) round(remain_time / m_max_time * max_print_bar_num);
-        if (print_bar_num < 0) print_bar_num = 0;
+        print_bar_num = (int) max(0, round(remain_time / m_max_time * max_print_bar_num));
         std::cout << "Remain time: " << std::endl;
         for (int print_times = 0; print_times < print_bar_num ; print_times ++) std::cout << "|";
         std::cout << std::endl;
