@@ -19,7 +19,7 @@ void Timer::run() {
     start_time = clock();
     do {
         end_time = clock();
-        remain_time = m_max_time - ((double) (start_time - end_time)) / CLOCKS_PER_SEC;
+        remain_time = m_max_time - ((double) (end_time - start_time)) / CLOCKS_PER_SEC;
         show(remain_time);
         std::this_thread::sleep_for(std::chrono::milliseconds(5));
     } while (remain_time > 0);
