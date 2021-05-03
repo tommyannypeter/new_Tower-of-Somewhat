@@ -1,4 +1,5 @@
 #include "Timer.hh"
+#include "CommonFunction.hh"
 #include <iostream>
 #include <time.h>
 #include <cmath>
@@ -29,7 +30,15 @@ void Timer::show(double remain_time) {
     int max_print_bar_num = 30;
     int print_bar_num;
     print_bar_num = (int) std::max(0., round(remain_time / m_max_time * max_print_bar_num));
-    std::cout << "Remain time: " << std::endl;
-    for (int print_times = 0; print_times < print_bar_num ; print_times ++) std::cout << "|";
+    GoToCursorPosition(0, 0);
+    std::string remain_time_str = "Remain time: ";
+    // std::cout << std::string(remain_time_str.length(), " "); // what's wrong with it?
+    // std::cout << std::string(print_bar_num, " ");            // what's wrong with it?
+    for (int print_times = 0; print_times < remain_time_str.length(); print_times ++) std::cout << " ";
+    std::cout << std::endl;
+    for (int print_times = 0; print_times < max_print_bar_num; print_times ++) std::cout << " ";
+    GoToCursorPosition(0, 0);
+    std::cout << remain_time_str << std::endl;
+    for (int print_times = 0; print_times < print_bar_num; print_times ++) std::cout << "|";
     std::cout << std::endl;
 }
