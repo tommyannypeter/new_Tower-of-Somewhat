@@ -21,23 +21,23 @@ void Timer::run() {
     do {
         end_time = clock();
         remain_time = m_max_time - ((double) (end_time - start_time)) / CLOCKS_PER_SEC;
-        show(remain_time);
+        show(0, 0, remain_time);
         std::this_thread::sleep_for(std::chrono::milliseconds(5));
     } while (remain_time > 0);
 }
 
-void Timer::show(double remain_time) {
+void Timer::show(int position_x, int position_y, double remain_time) {
     int max_print_bar_num = 30;
     int print_bar_num;
     print_bar_num = (int) std::max(0., round(remain_time / m_max_time * max_print_bar_num));
-    GoToCursorPosition(0, 0);
+    GoToCursorPosition(position_x, position_y);
     std::string remain_time_str = "Remain time: ";
     // std::cout << std::string(remain_time_str.length(), " "); // what's wrong with it?
-    // std::cout << std::string(print_bar_num, " ");            // what's wrong with it?
+    // std::cout << std::string(max_print_bar_num, " ");        // what's wrong with it?
     for (int print_times = 0; print_times < remain_time_str.length(); print_times ++) std::cout << " ";
     std::cout << std::endl;
     for (int print_times = 0; print_times < max_print_bar_num; print_times ++) std::cout << " ";
-    GoToCursorPosition(0, 0);
+    GoToCursorPosition(position_x, position_y);
     std::cout << remain_time_str << std::endl;
     for (int print_times = 0; print_times < print_bar_num; print_times ++) std::cout << "|";
     std::cout << std::endl;

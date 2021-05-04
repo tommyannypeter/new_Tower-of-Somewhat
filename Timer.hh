@@ -8,7 +8,7 @@ public:
     ~Timer();
 
     void run();
-    void show(double remain_time);
+    void show(int position_x, int position_y, double remain_time);
 };
 
 #endif
