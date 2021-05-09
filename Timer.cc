@@ -21,12 +21,14 @@ void Timer::run() {
     do {
         end_time = clock();
         remain_time = m_max_time - ((double) (end_time - start_time)) / CLOCKS_PER_SEC;
-        show(0, 0, remain_time);
+        show(remain_time);
         std::this_thread::sleep_for(std::chrono::milliseconds(5));
     } while (remain_time > 0);
 }
 
-void Timer::show(int position_x, int position_y, double remain_time) {
+void Timer::show(double remain_time) {
+    int position_x = 0;
+    int position_y = 0;
     int max_print_bar_num = 30;
     int print_bar_num;
     print_bar_num = (int) std::max(0., round(remain_time / m_max_time * max_print_bar_num));
