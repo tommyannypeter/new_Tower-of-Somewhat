@@ -1,0 +1,1 @@
+To run Timer, use `make psshih_test_run`.
