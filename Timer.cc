@@ -27,6 +27,7 @@ void Timer::run() {
 }
 
 void Timer::show(double remain_time) {
+    ChangePrintColor(Color::ORIGIN);
     int position_x = 0;
     int position_y = 0;
     int max_print_bar_num = 30;
@@ -43,4 +44,5 @@ void Timer::show(double remain_time) {
     std::cout << remain_time_str << std::endl;
     for (int print_times = 0; print_times < print_bar_num; print_times ++) std::cout << "|";
     std::cout << std::endl;
+    ChangePrintColor(Color::ORIGIN);
 }
