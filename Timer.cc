@@ -1,11 +1,15 @@
 #include "Timer.hh"
-#include "CommonFunction.hh"
+#include "Utilities.hh"
 #include <iostream>
 #include <time.h>
 #include <cmath>
 #include <thread>
 #include <chrono>
 #include <algorithm>
+
+int TimerColor::toColorCode() {
+    return m_color_enum;
+}
 
 Timer::Timer(double max_time) : m_max_time{max_time} {
 }
@@ -27,13 +31,13 @@ void Timer::run() {
 }
 
 void Timer::show(double remain_time) {
-    ChangePrintColor(Color::ORIGIN);
     int position_x = 0;
     int position_y = 0;
     int max_print_bar_num = 30;
     int print_bar_num;
     print_bar_num = (int) std::max(0., round(remain_time / m_max_time * max_print_bar_num));
     GoToCursorPosition(position_x, position_y);
+    ChangePrintColor(m_original_color);
     std::string remain_time_str = "Remain time: ";
     // std::cout << std::string(remain_time_str.length(), " "); // what's wrong with it?
     // std::cout << std::string(max_print_bar_num, " ");        // what's wrong with it?
@@ -41,8 +45,9 @@ void Timer::show(double remain_time) {
     std::cout << std::endl;
     for (int print_times = 0; print_times < max_print_bar_num; print_times ++) std::cout << " ";
     GoToCursorPosition(position_x, position_y);
+    ChangePrintColor(m_timer_color);
     std::cout << remain_time_str << std::endl;
     for (int print_times = 0; print_times < print_bar_num; print_times ++) std::cout << "|";
     std::cout << std::endl;
-    ChangePrintColor(Color::ORIGIN);
+    ChangePrintColor(m_original_color);
 }
