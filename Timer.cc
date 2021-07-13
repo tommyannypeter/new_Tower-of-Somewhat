@@ -12,6 +12,8 @@ int TimerColor::toColorCode() {
 }
 
 Timer::Timer(double max_time) : m_max_time{max_time} {
+    m_timer_color = new TimerColor();
+    m_original_color = new OriginalColor();
 }
 
 Timer::~Timer() {
