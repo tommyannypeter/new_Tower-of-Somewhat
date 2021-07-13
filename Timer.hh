@@ -3,20 +3,10 @@
 
 #include "Utilities.hh"
 
-class TimerColor : public Color {
-public:
-    TimerColor() {
-        m_color_enum = Color_foreground_lightgrey_background_black;
-    }
-
-    int toColorCode();
-};
-
 class Timer {
 private:
     double m_max_time;
-    TimerColor *m_timer_color;
-    OriginalColor *m_original_color;
+    ColorName m_color_name;
 
 public:
     Timer(double max_time);

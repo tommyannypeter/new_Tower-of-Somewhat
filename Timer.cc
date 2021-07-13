@@ -7,13 +7,11 @@
 #include <chrono>
 #include <algorithm>
 
-int TimerColor::toColorCode() {
-    return m_color_enum;
-}
+extern ColorTranslator g_color_translator;
 
 Timer::Timer(double max_time) : m_max_time{max_time} {
-    m_timer_color = new TimerColor();
-    m_original_color = new OriginalColor();
+    m_color_name = ColorName::ColorName_timer_color;
+    g_color_translator.registerColorName(m_color_name, ColorCode::ColorCode_foreground_lightgrey_background_black);
 }
 
 Timer::~Timer() {
@@ -39,7 +37,7 @@ void Timer::show(double remain_time) {
     int print_bar_num;
     print_bar_num = (int) std::max(0., round(remain_time / m_max_time * max_print_bar_num));
     GoToCursorPosition(position_x, position_y);
-    ChangePrintColor(m_original_color);
+    ChangePrintColor(m_color_name);
     std::string remain_time_str = "Remain time: ";
     // std::cout << std::string(remain_time_str.length(), " "); // what's wrong with it?
     // std::cout << std::string(max_print_bar_num, " ");        // what's wrong with it?
@@ -47,9 +45,9 @@ void Timer::show(double remain_time) {
     std::cout << std::endl;
     for (int print_times = 0; print_times < max_print_bar_num; print_times ++) std::cout << " ";
     GoToCursorPosition(position_x, position_y);
-    ChangePrintColor(m_timer_color);
+    ChangePrintColor(m_color_name);
     std::cout << remain_time_str << std::endl;
     for (int print_times = 0; print_times < print_bar_num; print_times ++) std::cout << "|";
     std::cout << std::endl;
-    ChangePrintColor(m_original_color);
+    ChangePrintColor(ColorName::ColorName_original_color);
 }

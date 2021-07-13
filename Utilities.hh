@@ -2,32 +2,30 @@
 #define UTILITIES_HH
 
 #include <iostream>
+#include <map>
 
-enum ColorEnum {
-    Color_foreground_lightgrey_background_black = 7, // this is the color code of original text.
+enum ColorCode {
+    ColorCode_foreground_lightgrey_background_black = 7, // this is the color code of original text.
 };
 
-class Color {
-protected:
-    ColorEnum m_color_enum {Color_foreground_lightgrey_background_black};
-
-public:
-    Color() {};
-    ~Color() {};
-
-    virtual int toColorCode();
+enum class ColorName {
+    ColorName_original_color, 
+    ColorName_timer_color, 
 };
 
-class OriginalColor : public Color {
-public:
-    OriginalColor() {
-        m_color_enum = Color_foreground_lightgrey_background_black;
-    }
+class ColorTranslator {
+private:
+    std::map<ColorName, ColorCode> m_name_enum_map;
 
-    int toColorCode();
+public:
+    ColorTranslator();
+    ~ColorTranslator();
+
+    void registerColorName(ColorName color_name, ColorCode color_enum);
+    ColorCode toColorCode(ColorName color_name);
 };
 
 void GoToCursorPosition(int position_x, int position_y);
-void ChangePrintColor(Color *color);
+void ChangePrintColor(ColorName color_name);
 
 #endif
