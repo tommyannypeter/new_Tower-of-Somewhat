@@ -29,12 +29,11 @@ void Timer::run() {
 }
 
 void Timer::show(double remain_time) {
-    int position_x = 0;
-    int position_y = 0;
+    Coordinate coordinate = Coordinate(0, 0);
     int max_print_bar_num = 30;
     int print_bar_num;
     print_bar_num = (int) std::max(0., round(remain_time / m_max_time * max_print_bar_num));
-    GoToCursorPosition(position_x, position_y);
+    GoToCursorPosition(coordinate);
     ChangePrintColor(m_color_name);
     std::string remain_time_str = "Remain time: ";
     // std::cout << std::string(remain_time_str.length(), " "); // what's wrong with it?
@@ -42,7 +41,7 @@ void Timer::show(double remain_time) {
     for (int print_times = 0; print_times < remain_time_str.length(); print_times ++) std::cout << " ";
     std::cout << std::endl;
     for (int print_times = 0; print_times < max_print_bar_num; print_times ++) std::cout << " ";
-    GoToCursorPosition(position_x, position_y);
+    GoToCursorPosition(coordinate);
     ChangePrintColor(m_color_name);
     std::cout << remain_time_str << std::endl;
     for (int print_times = 0; print_times < print_bar_num; print_times ++) std::cout << "|";

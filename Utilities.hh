@@ -4,6 +4,19 @@
 #include <iostream>
 #include <map>
 
+class Coordinate {
+private:
+    int m_coordinate_x;
+    int m_coordinate_y;
+
+public:
+    Coordinate(int coordinate_x, int coordinate_y);
+    ~Coordinate();
+
+    int getX();
+    int getY();
+};
+
 enum ColorCode {
     ColorCode_foreground_lightgrey_background_black = 7, // this is the color code of original text.
 };
@@ -34,7 +47,7 @@ public:
     };
 };
 
-void GoToCursorPosition(int position_x, int position_y);
+void GoToCursorPosition(Coordinate coordinate);
 void ChangePrintColor(ColorName color_name);
 
 #endif
