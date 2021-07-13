@@ -7,11 +7,9 @@
 #include <chrono>
 #include <algorithm>
 
-extern ColorTranslator g_color_translator;
-
 Timer::Timer(double max_time) : m_max_time{max_time} {
     m_color_name = ColorName::ColorName_timer_color;
-    g_color_translator.registerColorName(m_color_name, ColorCode::ColorCode_foreground_lightgrey_background_black);
+    ColorTranslator::getInstance()->registerColorName(m_color_name, ColorCode::ColorCode_foreground_lightgrey_background_black);
 }
 
 Timer::~Timer() {

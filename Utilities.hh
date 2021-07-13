@@ -17,12 +17,21 @@ class ColorTranslator {
 private:
     std::map<ColorName, ColorCode> m_name_enum_map;
 
-public:
+    static ColorTranslator *m_instance;
     ColorTranslator();
+
+public:
     ~ColorTranslator();
 
     void registerColorName(ColorName color_name, ColorCode color_enum);
     ColorCode toColorCode(ColorName color_name);
+
+    static ColorTranslator *getInstance() {
+        if (m_instance == NULL) {
+            m_instance = new ColorTranslator();
+        }
+        return m_instance;
+    };
 };
 
 void GoToCursorPosition(int position_x, int position_y);
