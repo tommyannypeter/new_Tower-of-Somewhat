@@ -16,7 +16,7 @@ void ColorTranslator::registerColorName(ColorName color_name, ColorCode color_en
     }
 }
 
-bool ColorTranslator::isColorNameExist(ColorName color_name) {
+bool ColorTranslator::ColorNameExists(ColorName color_name) {
     std::map<ColorName, ColorCode>::iterator iter = m_name_enum_map.find(color_name);
     if (iter == m_name_enum_map.end()) {
         return false;

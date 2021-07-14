@@ -24,7 +24,7 @@ public:
     ~ColorTranslator();
 
     void registerColorName(ColorName color_name, ColorCode color_enum);
-    bool isColorNameExist(ColorName color_name);
+    bool ColorNameExists(ColorName color_name);
     ColorCode toColorCode(ColorName color_name);
 
     static ColorTranslator *getInstance() {
