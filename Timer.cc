@@ -8,8 +8,8 @@
 #include <algorithm>
 
 Timer::Timer(double max_time) : m_max_time{max_time} {
-    m_color_name = ColorName::ColorName_timer_color;
-    ColorTranslator::getInstance()->registerColorName(m_color_name, ColorCode::ColorCode_foreground_lightgrey_background_black);
+    m_color_name = ColorName::timer_color;
+    ColorTranslator::getInstance()->registerColorName(m_color_name, ColorCode_foreground_lightgrey_background_black);
 }
 
 Timer::~Timer() {
@@ -46,5 +46,5 @@ void Timer::show(double remain_time) {
     std::cout << remain_time_str << std::endl;
     for (int print_times = 0; print_times < print_bar_num; print_times ++) std::cout << "|";
     std::cout << std::endl;
-    ChangePrintColor(ColorName::ColorName_default_color);
+    ChangePrintColor(ColorName::default_color);
 }

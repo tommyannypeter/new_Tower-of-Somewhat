@@ -5,12 +5,12 @@
 #include <map>
 
 enum ColorCode {
-    ColorCode_foreground_lightgrey_background_black = 7, // this is the color code of original text.
+    ColorCode_foreground_lightgrey_background_black = 7, // the color code of default text.
 };
 
 enum class ColorName {
-    ColorName_default_color, 
-    ColorName_timer_color, 
+    default_color, 
+    timer_color, 
 };
 
 class ColorTranslator {
