@@ -9,7 +9,7 @@ enum ColorCode {
 };
 
 enum class ColorName {
-    ColorName_original_color, 
+    ColorName_default_color, 
     ColorName_timer_color, 
 };
 

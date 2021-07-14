@@ -46,5 +46,5 @@ void Timer::show(double remain_time) {
     std::cout << remain_time_str << std::endl;
     for (int print_times = 0; print_times < print_bar_num; print_times ++) std::cout << "|";
     std::cout << std::endl;
-    ChangePrintColor(ColorName::ColorName_original_color);
+    ChangePrintColor(ColorName::ColorName_default_color);
 }
