@@ -11,7 +11,19 @@ ColorTranslator::~ColorTranslator() {
 ColorTranslator* ColorTranslator::m_instance = NULL;
 
 void ColorTranslator::registerColorName(ColorName color_name, ColorCode color_enum) {
-    m_name_enum_map.insert(std::pair<ColorName, ColorCode>(color_name, color_enum));
+    if (!isColorNameExist(color_name)) {
+        m_name_enum_map.insert(std::pair<ColorName, ColorCode>(color_name, color_enum));
+    }
+}
+
+bool ColorTranslator::isColorNameExist(ColorName color_name) {
+    std::map<ColorName, ColorCode>::iterator iter = m_name_enum_map.find(color_name);
+    if (iter == m_name_enum_map.end()) {
+        return false;
+    }
+    else {
+        return true;
+    }
 }
 
 ColorCode ColorTranslator::toColorCode(ColorName color_name) {
