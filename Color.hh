@@ -19,12 +19,13 @@ private:
 
     static ColorTranslator *m_instance;
     ColorTranslator();
+    
+    bool ColorNameExists(ColorName color_name);
 
 public:
     ~ColorTranslator();
 
     void registerColorName(ColorName color_name, ColorCode color_enum);
-    bool ColorNameExists(ColorName color_name);
     ColorCode toColorCode(ColorName color_name);
 
     static ColorTranslator *getInstance() {
