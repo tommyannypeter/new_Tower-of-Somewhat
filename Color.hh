@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <map>
-#include "Coordinate.hh"
 
 enum ColorCode {
     ColorCode_foreground_lightgrey_background_black = 7, // this is the color code of original text.
