@@ -11,7 +11,7 @@ ColorTranslator::~ColorTranslator() {
 ColorTranslator* ColorTranslator::m_instance = NULL;
 
 void ColorTranslator::registerColorName(ColorName color_name, ColorCode color_enum) {
-    if (!isColorNameExist(color_name)) {
+    if (!ColorNameExists(color_name)) {
         m_name_enum_map.insert(std::pair<ColorName, ColorCode>(color_name, color_enum));
     }
 }
