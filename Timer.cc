@@ -9,7 +9,8 @@
 
 Timer::Timer(double max_time) : m_max_time{max_time} {
     m_color_name = ColorName::timer_color;
-    ColorTranslator::getInstance()->registerColorName(m_color_name, ColorCode_foreground_lightgrey_background_black);
+    ColorTranslator::getInstance() -> 
+        registerColorName(m_color_name, ColorCode_foreground_lightgrey_background_black);
 }
 
 Timer::~Timer() {
@@ -38,13 +39,19 @@ void Timer::show(double remain_time) {
     std::string remain_time_str = "Remain time: ";
     // std::cout << std::string(remain_time_str.length(), " "); // what's wrong with it?
     // std::cout << std::string(max_print_bar_num, " ");        // what's wrong with it?
-    for (int print_times = 0; print_times < remain_time_str.length(); print_times ++) std::cout << " ";
+    for (int print_times = 0; print_times < remain_time_str.length(); print_times ++) {
+        std::cout << " ";
+    }
     std::cout << std::endl;
-    for (int print_times = 0; print_times < max_print_bar_num; print_times ++) std::cout << " ";
+    for (int print_times = 0; print_times < max_print_bar_num; print_times ++) {
+        std::cout << " ";
+    }
     GoToCursorPosition(coordinate);
     ChangePrintColor(m_color_name);
     std::cout << remain_time_str << std::endl;
-    for (int print_times = 0; print_times < print_bar_num; print_times ++) std::cout << "|";
+    for (int print_times = 0; print_times < print_bar_num; print_times ++) {
+        std::cout << "|";
+    }
     std::cout << std::endl;
     ChangePrintColor(ColorName::default_color);
 }
