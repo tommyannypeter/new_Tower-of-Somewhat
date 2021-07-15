@@ -20,7 +20,7 @@ private:
     static ColorTranslator *m_instance;
     ColorTranslator();
     
-    bool ColorNameExists(ColorName color_name);
+    bool colorNameExists(ColorName color_name);
 
 public:
     ~ColorTranslator();
