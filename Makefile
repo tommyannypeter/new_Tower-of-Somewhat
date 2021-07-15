@@ -3,3 +3,6 @@ psshih_test_run: psshih_test_compile
 
 psshih_test_compile: *.cc
 	g++ *.cc -o psshih_test.exe
+
+clean:
+	rm -f psshih_test.exe
