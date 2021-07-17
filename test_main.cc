@@ -25,9 +25,11 @@ int main(int argc, char const *argv[]) {
 
         Ball ball_4 = Ball(ColorName::Ball_red);
         ball_4.show();
-        
+
         Ball ball_5 = Ball(ColorName::Ball_yellow);
         ball_5.show();
+
+        std::cout << std::endl;
     }
     else {
         std::cout << "error" << std::endl;
@@ -36,4 +38,3 @@ int main(int argc, char const *argv[]) {
     system("pause");
     return 0;
 }
-
