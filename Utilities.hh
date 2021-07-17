@@ -13,8 +13,8 @@ enum class KeyboardInput {
     Unclassified, 
 };
 
-void GoToCursorPosition(Coordinate coordinate);
-void ChangePrintColor(ColorName color_name);
-KeyboardInput GetKeyboardInput();
+void goToCursorPosition(Coordinate coordinate);
+void changePrintColor(ColorName color_name);
+KeyboardInput getKeyboardInput();
 
 #endif

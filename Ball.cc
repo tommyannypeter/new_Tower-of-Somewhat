@@ -35,12 +35,12 @@ void Ball::put_down() {
 }
 
 void Ball::show() {
-    ChangePrintColor(m_color_name);
+    changePrintColor(m_color_name);
     if (m_is_picked_up) {
         std::cout << "◎"; // \u25ce
     }
     else{
         std::cout << "●"; // \u25cf
     }
-    ChangePrintColor(ColorName::Default);
+    changePrintColor(ColorName::Default);
 }

@@ -2,7 +2,7 @@
 #include <windows.h>
 #include <conio.h>
 
-void GoToCursorPosition(Coordinate coordinate) {
+void goToCursorPosition(Coordinate coordinate) {
     COORD screen;
     screen.X = coordinate.getX();
     screen.Y = coordinate.getY();
@@ -10,12 +10,12 @@ void GoToCursorPosition(Coordinate coordinate) {
     SetConsoleCursorPosition(hConsole, screen);
 }
 
-void ChangePrintColor(ColorName color_name) {
+void changePrintColor(ColorName color_name) {
     int color_code = ColorTranslator::getInstance()->toColorCode(color_name);
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color_code);
 }
 
-KeyboardInput GetKeyboardInput() {
+KeyboardInput getKeyboardInput() {
     if (!kbhit()) {
         if (getch() == 224) {
             if (getch() == 72) {
