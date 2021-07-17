@@ -8,7 +8,7 @@
 #include <algorithm>
 
 Timer::Timer(double max_time) : m_max_time{max_time} {
-    m_color_name = ColorName::timer;
+    m_color_name = ColorName::Timer;
     ColorTranslator::getInstance() -> 
         registerColorName(m_color_name, ColorCode_foreground_lightgrey_background_black);
 }
@@ -53,5 +53,5 @@ void Timer::show(double remain_time) {
         std::cout << "|";
     }
     std::cout << std::endl;
-    ChangePrintColor(ColorName::defaults);
+    ChangePrintColor(ColorName::Default);
 }

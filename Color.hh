@@ -9,8 +9,8 @@ enum ColorCode {
 };
 
 enum class ColorName {
-    defaults, 
-    timer, 
+    Default, 
+    Timer, 
 };
 
 class ColorTranslator {

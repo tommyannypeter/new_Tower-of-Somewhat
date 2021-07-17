@@ -2,7 +2,7 @@
 
 ColorTranslator::ColorTranslator() {
     m_name_enum_map = {};
-    registerColorName(ColorName::defaults, ColorCode_foreground_lightgrey_background_black);
+    registerColorName(ColorName::Default, ColorCode_foreground_lightgrey_background_black);
 }
 
 ColorTranslator::~ColorTranslator() {
