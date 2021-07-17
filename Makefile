@@ -1,8 +1,11 @@
-test_timer_run: psshih_test_compile
-	test_timer.exe
+test_board_run: test_compile
+	test_main.exe board
 
-test_timer_compile: *.cc
-	g++ *.cc -o test_timer.exe
+test_timer_run: test_compile
+	test_main.exe timer
+
+test_compile: *.cc
+	g++ *.cc -o test_main.exe
 
 clean:
-	rm -f test_timer.exe
+	rm -f test_main.exe
