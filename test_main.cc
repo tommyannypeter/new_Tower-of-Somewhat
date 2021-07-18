@@ -7,7 +7,7 @@ int main(int argc, char const *argv[]) {
     if (exec_type == "timer") {
         system("clear");
         int time = 3;
-        Timer timer = Timer(time);
+        Timer timer = Timer(Coordinate(0, 0), time);
         timer.run();
     }
     else if (exec_type == "board") {
