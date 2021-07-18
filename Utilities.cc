@@ -40,6 +40,9 @@ KeyboardInput getKeyboardInput() {
             return KeyboardInput::Unclassified;
         }
     }
+    else {
+        return KeyboardInput::Unclassified;
+    }
 }
 
 // initialize the random seed
