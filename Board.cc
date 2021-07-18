@@ -49,6 +49,7 @@ void Board::run() {
 }
 
 void Board::show() {
+    goToCursorPosition(m_coordinate);
     for (int row_num = 0; row_num < m_height; row_num ++) {
         for (int column_num = 0; column_num < m_width; column_num ++) {
             Ball ball = m_grid[row_num][column_num];
