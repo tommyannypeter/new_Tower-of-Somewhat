@@ -41,6 +41,6 @@ KeyboardInput getKeyboardInput() {
 
 int getRandomIntegerBetweenMinAndMax(int min_num, int max_num) {
     std::mt19937 mersenne{ static_cast<std::mt19937::result_type>(std::time(nullptr)) };
-    std::uniform_int_distribution generator{ min_num, max_num };
+    std::uniform_int_distribution<> generator{ min_num, max_num };
     return generator(mersenne);
 }
