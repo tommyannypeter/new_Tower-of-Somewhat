@@ -2,6 +2,7 @@
 #define BOARD_HH
 
 #include "Utilities.hh"
+#include "Ball.hh"
 #include <vector>
 
 class Board {

@@ -1,5 +1,4 @@
 #include "Board.hh"
-#include "Ball.hh"
 
 void Board::fillGrid() {
     for (int row_num = 0; row_num < m_height; row_num ++) {
