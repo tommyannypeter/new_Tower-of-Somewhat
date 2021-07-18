@@ -5,13 +5,13 @@
 int main(int argc, char const *argv[]) {
     std::string exec_type = argv[1];
     if (exec_type == "timer") {
-        system("clear");
+        system("cls");
         int time = 3;
         Timer timer = Timer(Coordinate(0, 0), time);
         timer.run();
     }
     else if (exec_type == "board") {
-        system("clear");
+        system("cls");
         int width = 6;
         int height = 5;
         Board board = Board(Coordinate(0, 0), width, height);
@@ -21,6 +21,5 @@ int main(int argc, char const *argv[]) {
         std::cout << "error" << std::endl;
     }
 
-    system("pause");
     return 0;
 }

@@ -18,27 +18,24 @@ void changePrintColor(ColorName color_name) {
 }
 
 KeyboardInput getKeyboardInput() {
-    if (!kbhit()) {
-        if (getch() == 224) {
-            if (getch() == 72) {
-                return KeyboardInput::Up;
-            }
-            else if (getch() == 75) {
-                return KeyboardInput::Left;
-            }
-            else if (getch() == 77) {
-                return KeyboardInput::Right;
-            }
-            else if (getch() == 80) {
-                return KeyboardInput::Down;
-            }
+    int input = getch();
+    if (input == 0 || input == 224) {
+        input = getch();
+        if (input == 72) {
+            return KeyboardInput::Up;
         }
-        else if (getch() == 13) {
-            return KeyboardInput::Enter;
+        else if (input == 75) {
+            return KeyboardInput::Left;
         }
-        else {
-            return KeyboardInput::Unclassified;
+        else if (input == 77) {
+            return KeyboardInput::Right;
         }
+        else if (input == 80) {
+            return KeyboardInput::Down;
+        }
+    }
+    else if (input == 13) {
+        return KeyboardInput::Enter;
     }
     else {
         return KeyboardInput::Unclassified;
