@@ -9,6 +9,7 @@ private:
     bool m_is_pickedUp = false;
 
 public:
+    Ball();
     Ball(ColorName color_name);
     ~Ball();
 

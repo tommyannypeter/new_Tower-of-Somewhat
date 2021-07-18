@@ -1,5 +1,9 @@
 #include "Ball.hh"
 
+Ball::Ball() {
+    m_color_name = ColorName::Ball_grey;
+}
+
 Ball::Ball(ColorName color_name) : m_color_name{color_name} {
     if (color_name == ColorName::Ball_grey) {
         ColorTranslator::getInstance() -> 
@@ -39,7 +43,7 @@ void Ball::show() {
     if (m_is_pickedUp) {
         std::cout << "◎"; // \u25ce
     }
-    else{
+    else {
         std::cout << "●"; // \u25cf
     }
     changePrintColor(ColorName::Default);

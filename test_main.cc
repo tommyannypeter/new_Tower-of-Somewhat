@@ -11,7 +11,10 @@ int main(int argc, char const *argv[]) {
         timer.run();
     }
     else if (exec_type == "board") {
-        Board board = Board(Coordinate(0, 0), 5, 6);
+        system("clear");
+        int width = 6;
+        int height = 5;
+        Board board = Board(Coordinate(0, 0), width, height);
         board.run();
     }
     else {

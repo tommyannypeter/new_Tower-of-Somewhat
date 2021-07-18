@@ -4,7 +4,8 @@ void Board::fillGrid() {
     for (int row_num = 0; row_num < m_height; row_num ++) {
         for (int column_num = 0; column_num < m_width; column_num ++) {
             ColorName color_name = getRandomBallColor();
-            m_grid[row_num][column_num] = *(new Ball(color_name));
+            Ball ball = Ball(color_name);
+            m_grid[row_num][column_num] = ball;
         }
     }
 }
@@ -33,9 +34,9 @@ ColorName Board::getRandomBallColor() {
 
 Board::Board(Coordinate coordinate, int width, int height) 
     : m_coordinate{coordinate}, m_width{width}, m_height{height} {
-    m_grid.reserve(width);
-    for (int column_num = 0; column_num < width; column_num ++) {
-        m_grid[column_num].reserve(height);
+    m_grid.resize(height);
+    for (int row_num = 0; row_num < height; row_num ++) {
+        m_grid[row_num].resize(width);
     }
 }
 
