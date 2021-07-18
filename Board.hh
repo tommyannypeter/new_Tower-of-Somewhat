@@ -11,9 +11,15 @@ private:
     int m_height;
     std::vector<std::vector<Ball>> m_grid;
 
+    void fill_grid();
+    ColorName get_random_ball_color();
+
 public:
     Board(Coordinate coordinate, int width, int height);
     ~Board();
+
+    void run();
+    void show();
 };
 
 #endif

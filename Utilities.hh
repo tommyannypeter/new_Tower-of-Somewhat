@@ -16,5 +16,6 @@ enum class KeyboardInput {
 void goToCursorPosition(Coordinate coordinate);
 void changePrintColor(ColorName color_name);
 KeyboardInput getKeyboardInput();
+int getRandomIntegerBetweenMinAndMax(int min_num, int max_num);
 
 #endif
