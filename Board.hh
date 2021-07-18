@@ -15,6 +15,8 @@ private:
 
     void fillGrid();
     ColorName getRandomBallColor();
+    void putDownAllBalls();
+    void checkWhichBallPicked();
 
 public:
     Board(Coordinate coordinate, int width, int height);

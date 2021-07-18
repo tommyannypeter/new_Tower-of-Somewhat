@@ -32,6 +32,21 @@ ColorName Board::getRandomBallColor() {
     }
 }
 
+void Board::putDownAllBalls() {
+    for (int row_num = 0; row_num < m_height; row_num ++) {
+        for (int column_num = 0; column_num < m_width; column_num ++) {
+            m_grid[row_num][column_num].putDown();
+        }
+    }
+}
+
+void Board::checkWhichBallPicked() {
+    putDownAllBalls();
+    int cursor_x = m_cursor.getCurrentX();
+    int cursor_y = m_cursor.getCurrentY();
+    m_grid[cursor_y][cursor_x].pickedUp();
+}
+
 Board::Board(Coordinate coordinate, int width, int height) 
     : m_coordinate{coordinate}, m_width{width}, m_height{height} {
     m_cursor.setMaxXAndMaxY(width, height);
@@ -47,9 +62,32 @@ Board::~Board() {
 void Board::run() {
     fillGrid();
     show();
+    while (true) {
+        KeyboardInput input = getKeyboardInput();
+        if (input == KeyboardInput::Enter) {
+            break;
+        }
+        else if (input == KeyboardInput::Up) {
+            m_cursor.moveUp();
+            show();
+        }
+        else if (input == KeyboardInput::Left) {
+            m_cursor.moveLeft();
+            show();
+        }
+        else if (input == KeyboardInput::Right) {
+            m_cursor.moveRight();
+            show();
+        }
+        else if (input == KeyboardInput::Down) {
+            m_cursor.moveDown();
+            show();
+        }
+    }
 }
 
 void Board::show() {
+    checkWhichBallPicked();
     goToCursorPosition(m_coordinate);
     for (int row_num = 0; row_num < m_height; row_num ++) {
         for (int column_num = 0; column_num < m_width; column_num ++) {
