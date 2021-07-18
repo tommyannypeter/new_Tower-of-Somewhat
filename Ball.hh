@@ -6,14 +6,14 @@
 class Ball {
 private:
     ColorName m_color_name;
-    bool m_is_picked_up = false;
+    bool m_is_pickedUp = false;
 
 public:
     Ball(ColorName color_name);
     ~Ball();
 
-    void picked_up();
-    void put_down();
+    void pickedUp();
+    void putDown();
     void show();
 };
 

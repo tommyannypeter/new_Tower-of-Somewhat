@@ -26,17 +26,17 @@ Ball::Ball(ColorName color_name) : m_color_name{color_name} {
 Ball::~Ball() {
 }
 
-void Ball::picked_up() {
-    m_is_picked_up = true;
+void Ball::pickedUp() {
+    m_is_pickedUp = true;
 }
 
-void Ball::put_down() {
-    m_is_picked_up = false;
+void Ball::putDown() {
+    m_is_pickedUp = false;
 }
 
 void Ball::show() {
     changePrintColor(m_color_name);
-    if (m_is_picked_up) {
+    if (m_is_pickedUp) {
         std::cout << "◎"; // \u25ce
     }
     else{

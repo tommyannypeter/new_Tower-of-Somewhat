@@ -1,17 +1,17 @@
 #include "Board.hh"
 #include "Ball.hh"
 
-void Board::fill_grid() {
+void Board::fillGrid() {
     for (int row_num = 0; row_num < m_height; row_num ++) {
         for (int column_num = 0; column_num < m_width; column_num ++) {
-            ColorName color_name = get_random_ball_color();
+            ColorName color_name = getRandomBallColor();
             m_grid[row_num][column_num] = *(new Ball(color_name));
         }
     }
 }
 
 
-ColorName get_random_ball_color() {
+ColorName getRandomBallColor() {
     // there are 5 colors now
     // but how to handle this magic number?
     int random_num = getRandomIntegerBetweenMinAndMax(1, 5);
@@ -44,7 +44,7 @@ Board::~Board() {
 }
 
 void Board::run() {
-    fill_grid();
+    fillGrid();
     show();
 }
 

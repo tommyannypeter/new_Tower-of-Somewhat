@@ -15,12 +15,12 @@ int main(int argc, char const *argv[]) {
         ball_1.show();
 
         Ball ball_2 = Ball(ColorName::Ball_cyan);
-        ball_2.picked_up();
+        ball_2.pickedUp();
         ball_2.show();
 
         Ball ball_3 = Ball(ColorName::Ball_green);
-        ball_3.picked_up();
-        ball_3.put_down();
+        ball_3.pickedUp();
+        ball_3.putDown();
         ball_3.show();
 
         Ball ball_4 = Ball(ColorName::Ball_red);
