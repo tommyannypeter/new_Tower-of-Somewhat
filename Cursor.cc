@@ -34,3 +34,10 @@ void Cursor::moveDown() {
         m_current_y += 1;
     }
 }
+
+int Cursor::getCurrentX() {
+    return m_current_x;
+}
+int Cursor::getCurrentY() {
+    return m_current_y;
+}

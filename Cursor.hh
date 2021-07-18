@@ -17,6 +17,8 @@ public:
     void moveLeft();
     void moveRight();
     void moveDown();
+    int getCurrentX();
+    int getCurrentY();
 };
 
 #endif
