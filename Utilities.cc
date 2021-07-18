@@ -33,6 +33,9 @@ KeyboardInput getKeyboardInput() {
                 return KeyboardInput::Down;
             }
         }
+        else if (getch() == 13) {
+            return KeyboardInput::Enter;
+        }
         else {
             return KeyboardInput::Unclassified;
         }

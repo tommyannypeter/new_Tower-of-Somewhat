@@ -9,6 +9,7 @@ enum class KeyboardInput {
     Left, 
     Right, 
     Down, 
+    Enter, 
 
     Unclassified, 
 };

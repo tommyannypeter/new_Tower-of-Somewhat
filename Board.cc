@@ -13,7 +13,7 @@ void Board::fillGrid() {
 
 ColorName Board::getRandomBallColor() {
     // there are 5 colors now
-    // but how to handle this magic number?
+    // how to avoid this magic number?
     int random_num = getRandomIntegerBetweenMinAndMax(1, 5);
     if (random_num == 1) {
         return ColorName::Ball_grey;
