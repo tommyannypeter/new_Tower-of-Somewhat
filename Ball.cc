@@ -1,7 +1,8 @@
 #include "Ball.hh"
 
+// this constructor is for 2d-vector resize... can we avoid this?
 Ball::Ball() {
-    m_color_name = ColorName::Ball_grey;
+    m_color_name = ColorName::Default;
 }
 
 Ball::Ball(ColorName color_name) : m_color_name{color_name} {
