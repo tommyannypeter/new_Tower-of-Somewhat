@@ -34,6 +34,7 @@ ColorName Board::getRandomBallColor() {
 
 Board::Board(Coordinate coordinate, int width, int height) 
     : m_coordinate{coordinate}, m_width{width}, m_height{height} {
+    m_cursor.setMaxXAndMaxY(width, height);
     m_grid.resize(height);
     for (int row_num = 0; row_num < height; row_num ++) {
         m_grid[row_num].resize(width);

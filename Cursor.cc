@@ -1,9 +1,14 @@
 #include "Cursor.hh"
 
-Cursor::Cursor(int max_x, int max_y) {
+Cursor::Cursor() {
 }
 
 Cursor::~Cursor() {
+}
+
+void Cursor::setMaxXAndMaxY(int max_x, int max_y) {
+    m_max_x = max_x;
+    m_max_y = max_y;
 }
 
 void Cursor::moveUp() {

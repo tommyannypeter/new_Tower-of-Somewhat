@@ -3,6 +3,7 @@
 
 #include "Coordinate.hh"
 #include "Color.hh"
+#include "Cursor.hh"
 
 enum class KeyboardInput {
     Up, 

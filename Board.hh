@@ -11,6 +11,7 @@ private:
     int m_width;
     int m_height;
     std::vector<std::vector<Ball>> m_grid;
+    Cursor m_cursor;
 
     void fillGrid();
     ColorName getRandomBallColor();
