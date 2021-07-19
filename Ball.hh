@@ -13,7 +13,7 @@ public:
     Ball(ColorName color_name);
     ~Ball();
 
-    void pickedUp();
+    void pickUp();
     void putDown();
     void show();
 };

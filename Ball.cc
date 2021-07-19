@@ -31,7 +31,7 @@ Ball::Ball(ColorName color_name) : m_color_name{color_name} {
 Ball::~Ball() {
 }
 
-void Ball::pickedUp() {
+void Ball::pickUp() {
     m_is_pickedUp = true;
 }
 

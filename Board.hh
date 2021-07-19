@@ -23,7 +23,7 @@ private:
     void fillGrids();
     ColorName getRandomBallColor();
     void putDownAllBalls();
-    void checkWhichBallPicked();
+    void pickUpBallAtCursor();
 
 public:
     Board(Coordinate coordinate, int width, int height);

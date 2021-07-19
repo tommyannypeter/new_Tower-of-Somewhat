@@ -26,11 +26,11 @@ void Board::putDownAllBalls() {
     }
 }
 
-void Board::checkWhichBallPicked() {
+void Board::pickUpBallAtCursor() {
     putDownAllBalls();
     int cursor_x = m_cursor.getCurrentX();
     int cursor_y = m_cursor.getCurrentY();
-    m_grids[cursor_y][cursor_x].pickedUp();
+    m_grids[cursor_y][cursor_x].pickUp();
 }
 
 Board::Board(Coordinate coordinate, int width, int height) 
@@ -73,7 +73,7 @@ void Board::run() {
 }
 
 void Board::show() {
-    checkWhichBallPicked();
+    pickUpBallAtCursor();
     goToCursorPosition(m_coordinate);
     for (int row_num = 0; row_num < m_height; row_num ++) {
         for (int column_num = 0; column_num < m_width; column_num ++) {
