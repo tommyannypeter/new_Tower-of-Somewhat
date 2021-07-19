@@ -15,21 +15,7 @@ ColorName Board::getRandomBallColor() {
     // there are 5 colors now
     // how to avoid this magic number?
     int random_num = getRandomIntegerBetweenMinAndMax(1, 5);
-    if (random_num == 1) {
-        return ColorName::Ball_grey;
-    }
-    else if (random_num == 2) {
-        return ColorName::Ball_cyan;
-    }
-    else if (random_num == 3) {
-        return ColorName::Ball_green;
-    }
-    else if (random_num == 4) {
-        return ColorName::Ball_red;
-    }
-    else if (random_num == 5) {
-        return ColorName::Ball_yellow;
-    }
+    return m_ball_color_array[random_num];
 }
 
 void Board::putDownAllBalls() {

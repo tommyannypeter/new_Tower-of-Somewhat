@@ -12,6 +12,13 @@ private:
     int m_height;
     std::vector<std::vector<Ball>> m_grids;
     Cursor m_cursor;
+    ColorName m_ball_color_array[5] {
+        ColorName::Ball_grey, 
+        ColorName::Ball_green, 
+        ColorName::Ball_cyan, 
+        ColorName::Ball_red, 
+        ColorName::Ball_yellow
+    };
 
     void fillGrids();
     ColorName getRandomBallColor();
