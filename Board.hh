@@ -10,10 +10,10 @@ private:
     Coordinate m_coordinate;
     int m_width;
     int m_height;
-    std::vector<std::vector<Ball>> m_grid;
+    std::vector<std::vector<Ball>> m_grids;
     Cursor m_cursor;
 
-    void fillGrid();
+    void fillGrids();
     ColorName getRandomBallColor();
     void putDownAllBalls();
     void checkWhichBallPicked();
