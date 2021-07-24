@@ -49,23 +49,23 @@ void Board::run() {
     fillGrids();
     show();
     while (true) {
-        KeyboardInput input = getKeyboardInput();
-        if (input == KeyboardInput::Enter) {
+        Key input = getKey();
+        if (input == Key::Enter) {
             break;
         }
-        else if (input == KeyboardInput::Up) {
+        else if (input == Key::Up) {
             m_cursor.moveUp();
             show();
         }
-        else if (input == KeyboardInput::Left) {
+        else if (input == Key::Left) {
             m_cursor.moveLeft();
             show();
         }
-        else if (input == KeyboardInput::Right) {
+        else if (input == Key::Right) {
             m_cursor.moveRight();
             show();
         }
-        else if (input == KeyboardInput::Down) {
+        else if (input == Key::Down) {
             m_cursor.moveDown();
             show();
         }

@@ -17,28 +17,28 @@ void changePrintColor(ColorName color_name) {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color_code);
 }
 
-KeyboardInput getKeyboardInput() {
+Key getKey() {
     int input = getch();
     if (input == 0 || input == 224) {
         input = getch();
         if (input == 72) {
-            return KeyboardInput::Up;
+            return Key::Up;
         }
         else if (input == 75) {
-            return KeyboardInput::Left;
+            return Key::Left;
         }
         else if (input == 77) {
-            return KeyboardInput::Right;
+            return Key::Right;
         }
         else if (input == 80) {
-            return KeyboardInput::Down;
+            return Key::Down;
         }
     }
     else if (input == 13) {
-        return KeyboardInput::Enter;
+        return Key::Enter;
     }
     else {
-        return KeyboardInput::Unclassified;
+        return Key::Unclassified;
     }
 }
 
