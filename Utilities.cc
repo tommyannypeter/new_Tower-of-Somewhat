@@ -38,7 +38,7 @@ Key getKey() {
         return Key::Enter;
     }
     else {
-        return Key::Unclassified;
+        return Key::Unknown;
     }
 }
 
