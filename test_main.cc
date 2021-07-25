@@ -1,5 +1,5 @@
-#include "Timer.hh"
-#include "Board.hh"
+#include "include/Timer.hh"
+#include "include/Board.hh"
 #include <iostream>
 
 int main(int argc, char const *argv[]) {
