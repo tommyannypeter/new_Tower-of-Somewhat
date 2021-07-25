@@ -12,10 +12,8 @@ void Board::fillGrids() {
 
 
 ColorName Board::getRandomBallColor() {
-    // there are 5 colors now
-    // how to avoid this magic number?
-    int random_num = getRandomIntegerBetweenMinAndMax(1, 5);
-    return m_ball_color_array[random_num];
+    int random_num = getRandomIntegerBetweenMinAndMax(1, getBallColorNum());
+    return m_ball_colors[random_num];
 }
 
 void Board::putDownAllBalls() {
@@ -31,6 +29,10 @@ void Board::pickUpBallAtCursor() {
     int cursor_x = m_cursor.getCurrentX();
     int cursor_y = m_cursor.getCurrentY();
     m_grids[cursor_y][cursor_x].pickUp();
+}
+
+int Board::getBallColorNum() {
+    return sizeof(m_ball_colors) / sizeof(m_ball_colors[0]);
 }
 
 Board::Board(Coordinate coordinate, int width, int height) 

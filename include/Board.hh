@@ -12,7 +12,7 @@ private:
     int m_height;
     std::vector<std::vector<Ball>> m_grids;
     Cursor m_cursor;
-    ColorName m_ball_color_array[5] {
+    ColorName m_ball_colors[5] {
         ColorName::Ball_grey, 
         ColorName::Ball_green, 
         ColorName::Ball_cyan, 
@@ -24,6 +24,7 @@ private:
     ColorName getRandomBallColor();
     void putDownAllBalls();
     void pickUpBallAtCursor();
+    int getBallColorNum();
 
 public:
     Board(Coordinate coordinate, int width, int height);
