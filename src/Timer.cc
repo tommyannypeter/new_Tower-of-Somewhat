@@ -7,8 +7,9 @@
 #include <chrono>
 #include <algorithm>
 
-Timer::Timer(double max_time) : m_max_time{max_time} {
-    m_color_name = ColorName::timer;
+Timer::Timer(Coordinate coordinate, double max_time) 
+        : m_coordinate{coordinate},  m_max_time{max_time} {
+    m_color_name = ColorName::Timer;
     ColorTranslator::getInstance() -> 
         registerColorName(m_color_name, ColorCode_foreground_lightgrey_background_black);
 }
@@ -30,12 +31,11 @@ void Timer::run() {
 }
 
 void Timer::show(double remain_time) {
-    Coordinate coordinate = Coordinate(0, 0);
     int max_print_bar_num = 30;
     int print_bar_num;
     print_bar_num = (int) std::max(0., round(remain_time / m_max_time * max_print_bar_num));
-    GoToCursorPosition(coordinate);
-    ChangePrintColor(m_color_name);
+    goToCursorPosition(m_coordinate);
+    changePrintColor(m_color_name);
     std::string remain_time_str = "Remain time: ";
     // std::cout << std::string(remain_time_str.length(), " "); // what's wrong with it?
     // std::cout << std::string(max_print_bar_num, " ");        // what's wrong with it?
@@ -46,12 +46,12 @@ void Timer::show(double remain_time) {
     for (int print_times = 0; print_times < max_print_bar_num; print_times ++) {
         std::cout << " ";
     }
-    GoToCursorPosition(coordinate);
-    ChangePrintColor(m_color_name);
+    goToCursorPosition(m_coordinate);
+    changePrintColor(m_color_name);
     std::cout << remain_time_str << std::endl;
     for (int print_times = 0; print_times < print_bar_num; print_times ++) {
         std::cout << "|";
     }
     std::cout << std::endl;
-    ChangePrintColor(ColorName::defaults);
+    changePrintColor(ColorName::Default);
 }
